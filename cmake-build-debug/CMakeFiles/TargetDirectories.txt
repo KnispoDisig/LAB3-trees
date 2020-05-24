@@ -1,0 +1,3 @@
+C:/Users/fell2/CLionProjects/LAB3-trees/cmake-build-debug/CMakeFiles/LAB3_trees.dir
+C:/Users/fell2/CLionProjects/LAB3-trees/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/fell2/CLionProjects/LAB3-trees/cmake-build-debug/CMakeFiles/rebuild_cache.dir
