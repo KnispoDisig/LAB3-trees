@@ -20,13 +20,17 @@ int main() {
     tree->insert_node(1);
     tree->insert_node(0);
     tree->insert_node(3);
-    tree->insert_node(2);
     tree->insert_node(5);
     tree->insert_node(8);
     tree->insert_node(7);
+    BinTree<int> *tree1 = new BinTree<int>();
+    tree1->insert_node(5);
+    tree1->insert_node(7);
+    tree1->insert_node(8);
 
-    std::cout << tree->where(more0, "RLN");
-
+    if (tree->contains_subtree(tree1)) {
+        std::cout << tree->toString("NLR");
+    }
     return 0;
 }
 

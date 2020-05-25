@@ -81,9 +81,17 @@ private:
         if (node->data == val) {
             return node;
         } else if (val < node->data) {
-            return find_node(node->left, val);
+            if (node->left != nullptr) {
+                return find_node(node->left, val);
+            } else {
+                return nullptr;
+            }
         } else {
-            return find_node(node->right, val);
+            if (node->right != nullptr) {
+                return find_node(node->right, val);
+            } else {
+                return nullptr;
+            }
         }
     }
 
@@ -142,6 +150,9 @@ public:
     }
 
     bool insert_node(T val) {
+        if (this->contains(val)) {
+            return false;
+        }
         TreeNode<T> *new_node = new TreeNode<T>(val);
         TreeNode<T> *ptr = this->root;
         TreeNode<T> *ptr1 = nullptr;
@@ -290,7 +301,7 @@ public:
     }
 
     std::basic_string<char> where(bool (*func)(T), std::string order) {
-        Sequence<TreeNode<T>*> *thread_tree = this->thread(order);
+        Sequence<TreeNode<T> *> *thread_tree = this->thread(order);
         std::string res;
 
         for (int i = 0; i < thread_tree->getLength(); i++) {
@@ -305,7 +316,7 @@ public:
     }
 
     T reduce(T (*func)(T, T), T start, std::string order) {
-        Sequence<TreeNode<T>*> *thread_tree = this->thread(order);
+        Sequence<TreeNode<T> *> *thread_tree = this->thread(order);
         T res;
         for (int i = 0; i < thread_tree->getLength(); i++) {
             if (i == 0) {
@@ -318,23 +329,10 @@ public:
         return res;
     }
 
-//    bool isBalanced(TreeNode<T> *node) {
-//        TreeNode<T> *left_ptr = node->left;
-//        TreeNode<T> *right_ptr = node->right;
-//        if (right_ptr == nullptr && left_ptr == nullptr) {
-//            return true;
-//        }
-//        if (abs(height(left_ptr) - height(right_ptr)) <= 1 && this->isBalanced(left_ptr) && this->isBalanced(right_ptr)) {
-//            return true;
-//        } else {
-//            return false;
-//        }
-//    }
-
     std::string toString(std::string order) {
         std::string res;
 
-        Sequence<TreeNode<T>*> *thread_tree = this->thread(order);
+        Sequence<TreeNode<T> *> *thread_tree = this->thread(order);
         for (int i = 0; i < thread_tree->getLength(); i++) {
             if (i == 0) {
                 res += std::to_string(thread_tree->get(i)->data) + " ";
@@ -361,7 +359,44 @@ public:
         return newTree;
     }
 
-    bool contains_subtree(BinTree<T> *subtree);
+    bool isEqual(BinTree<T> *tree) {
+        if (tree->get_root()->left == nullptr && tree->get_root()->right == nullptr && this->root->left == nullptr && this->root->right == nullptr) {
+                return this->root->data == tree->get_root()->data;
+        }
+        bool res = true;
+        TreeNode<T> *this_right = this->root->right;
+        TreeNode<T> *this_left = this->root->left;
+        TreeNode<T> *tree_right = tree->get_root()->right;
+        TreeNode<T> *tree_left = tree->get_root()->left;
+
+        if (this_left != nullptr && tree_left != nullptr) {
+            res = res && this->extract_subtree(this_left->data)->isEqual(tree->extract_subtree(tree_left->data));
+        } else if (this_left == nullptr && tree_left == nullptr) {}
+        else {
+            return false;
+        }
+
+        if (this_right != nullptr && tree_right != nullptr) {
+            res = res && this->extract_subtree(this_right->data)->isEqual(tree->extract_subtree(tree_right->data));
+        } else if (this_right == nullptr && tree_right == nullptr) {}
+        else {
+            return false;
+        }
+
+        return res;
+    }
+
+    bool contains_subtree(BinTree<T> *subtree) {
+        if (subtree->get_root() == nullptr) {
+            return true;
+        }
+        if (this->contains(subtree->get_root()->data)) {
+            BinTree<T> *checking_tree = this->extract_subtree(subtree->get_root()->data);    //кандидат в равенство subtree
+            return checking_tree->isEqual(subtree);
+        } else {
+            return false;
+        }
+    }
 
     void balance(TreeNode<T> *node);
 };
