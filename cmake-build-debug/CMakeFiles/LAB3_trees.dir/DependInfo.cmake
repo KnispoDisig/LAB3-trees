@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/fell2/CLionProjects/LAB3-trees/BinTree/BinTree.cpp" "C:/Users/fell2/CLionProjects/LAB3-trees/cmake-build-debug/CMakeFiles/LAB3_trees.dir/BinTree/BinTree.cpp.obj"
+  "C:/Users/fell2/CLionProjects/LAB3-trees/Complex/Complex.cpp" "C:/Users/fell2/CLionProjects/LAB3-trees/cmake-build-debug/CMakeFiles/LAB3_trees.dir/Complex/Complex.cpp.obj"
   "C:/Users/fell2/CLionProjects/LAB3-trees/Sequence/ArraySequence/ArraySequence.cpp" "C:/Users/fell2/CLionProjects/LAB3-trees/cmake-build-debug/CMakeFiles/LAB3_trees.dir/Sequence/ArraySequence/ArraySequence.cpp.obj"
   "C:/Users/fell2/CLionProjects/LAB3-trees/Sequence/ArraySequence/DynamicArray/DynamicArray.cpp" "C:/Users/fell2/CLionProjects/LAB3-trees/cmake-build-debug/CMakeFiles/LAB3_trees.dir/Sequence/ArraySequence/DynamicArray/DynamicArray.cpp.obj"
   "C:/Users/fell2/CLionProjects/LAB3-trees/Sequence/ListSequence/LinkedList/LinkedList.cpp" "C:/Users/fell2/CLionProjects/LAB3-trees/cmake-build-debug/CMakeFiles/LAB3_trees.dir/Sequence/ListSequence/LinkedList/LinkedList.cpp.obj"

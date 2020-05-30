@@ -9,6 +9,9 @@ CMakeFiles/LAB3_trees.dir/BinTree/BinTree.cpp.obj: ../Sequence/Sequence.h
 CMakeFiles/LAB3_trees.dir/BinTree/BinTree.cpp.obj: ../TreeNode/TreeNode.cpp
 CMakeFiles/LAB3_trees.dir/BinTree/BinTree.cpp.obj: ../TreeNode/TreeNode.h
 
+CMakeFiles/LAB3_trees.dir/Complex/Complex.cpp.obj: ../Complex/Complex.cpp
+CMakeFiles/LAB3_trees.dir/Complex/Complex.cpp.obj: ../Complex/Complex.h
+
 CMakeFiles/LAB3_trees.dir/Sequence/ArraySequence/ArraySequence.cpp.obj: ../Sequence/ArraySequence/ArraySequence.cpp
 CMakeFiles/LAB3_trees.dir/Sequence/ArraySequence/ArraySequence.cpp.obj: ../Sequence/ArraySequence/ArraySequence.h
 CMakeFiles/LAB3_trees.dir/Sequence/ArraySequence/ArraySequence.cpp.obj: ../Sequence/ArraySequence/DynamicArray/DynamicArray.cpp
@@ -31,6 +34,8 @@ CMakeFiles/LAB3_trees.dir/TreeNode/TreeNode.cpp.obj: ../TreeNode/TreeNode.cpp
 CMakeFiles/LAB3_trees.dir/TreeNode/TreeNode.cpp.obj: ../TreeNode/TreeNode.h
 
 CMakeFiles/LAB3_trees.dir/main.cpp.obj: ../BinTree/BinTree.h
+CMakeFiles/LAB3_trees.dir/main.cpp.obj: ../Complex/Complex.h
+CMakeFiles/LAB3_trees.dir/main.cpp.obj: ../Person/Person.h
 CMakeFiles/LAB3_trees.dir/main.cpp.obj: ../Sequence/ListSequence/LinkedList/LinkedList.cpp
 CMakeFiles/LAB3_trees.dir/main.cpp.obj: ../Sequence/ListSequence/LinkedList/LinkedList.h
 CMakeFiles/LAB3_trees.dir/main.cpp.obj: ../Sequence/ListSequence/LinkedListSequence.cpp

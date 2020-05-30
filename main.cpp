@@ -1,6 +1,8 @@
 #include <iostream>
 #include "BinTree/BinTree.h"
 #include "Sequence/ListSequence/LinkedListSequence.cpp"
+#include "Complex/Complex.h"
+#include "Person/Person.h"
 
 int plus1(int n) {
     return n + 1;
@@ -12,6 +14,18 @@ bool more0(int n) {
 
 int mult(int n, int m) {
     return n * m;
+}
+
+int inc1(int n) {
+    return n + 1;
+}
+
+int inc2(int n) {
+    return n + 2;
+}
+
+int inc3(int n) {
+    return n + 3;
 }
 
 int main() {
@@ -28,9 +42,9 @@ int main() {
     tree1->insert_node(7);
     tree1->insert_node(8);
 
-    if (tree->contains_subtree(tree1)) {
-        std::cout << tree->toString("NLR");
-    }
+    tree1->wide_walk()->print();
+
+
     return 0;
 }
 

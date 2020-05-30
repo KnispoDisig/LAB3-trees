@@ -9,6 +9,9 @@ CMakeFiles/LAB3_trees.dir/BinTree/BinTree.cpp.obj
  C:/Users/fell2/CLionProjects/LAB3-trees/Sequence/Sequence.h
  C:/Users/fell2/CLionProjects/LAB3-trees/TreeNode/TreeNode.cpp
  C:/Users/fell2/CLionProjects/LAB3-trees/TreeNode/TreeNode.h
+CMakeFiles/LAB3_trees.dir/Complex/Complex.cpp.obj
+ C:/Users/fell2/CLionProjects/LAB3-trees/Complex/Complex.cpp
+ C:/Users/fell2/CLionProjects/LAB3-trees/Complex/Complex.h
 CMakeFiles/LAB3_trees.dir/Sequence/ArraySequence/ArraySequence.cpp.obj
  C:/Users/fell2/CLionProjects/LAB3-trees/Sequence/ArraySequence/ArraySequence.cpp
  C:/Users/fell2/CLionProjects/LAB3-trees/Sequence/ArraySequence/ArraySequence.h
@@ -32,6 +35,8 @@ CMakeFiles/LAB3_trees.dir/TreeNode/TreeNode.cpp.obj
  C:/Users/fell2/CLionProjects/LAB3-trees/TreeNode/TreeNode.h
 CMakeFiles/LAB3_trees.dir/main.cpp.obj
  C:/Users/fell2/CLionProjects/LAB3-trees/BinTree/BinTree.h
+ C:/Users/fell2/CLionProjects/LAB3-trees/Complex/Complex.h
+ C:/Users/fell2/CLionProjects/LAB3-trees/Person/Person.h
  C:/Users/fell2/CLionProjects/LAB3-trees/Sequence/ListSequence/LinkedList/LinkedList.cpp
  C:/Users/fell2/CLionProjects/LAB3-trees/Sequence/ListSequence/LinkedList/LinkedList.h
  C:/Users/fell2/CLionProjects/LAB3-trees/Sequence/ListSequence/LinkedListSequence.cpp

@@ -15,6 +15,18 @@ C:/Users/fell2/CLionProjects/LAB3-trees/TreeNode/TreeNode.cpp
 C:/Users/fell2/CLionProjects/LAB3-trees/Sequence/ListSequence/LinkedListSequence.h
 cmath
 -
+queue
+-
+
+C:/Users/fell2/CLionProjects/LAB3-trees/Complex/Complex.h
+iosfwd
+-
+
+C:/Users/fell2/CLionProjects/LAB3-trees/Person/Person.h
+string
+C:/Users/fell2/CLionProjects/LAB3-trees/Person/string
+ostream
+C:/Users/fell2/CLionProjects/LAB3-trees/Person/ostream
 
 C:/Users/fell2/CLionProjects/LAB3-trees/Sequence/ListSequence/LinkedList/LinkedList.cpp
 iostream
@@ -57,4 +69,8 @@ BinTree/BinTree.h
 C:/Users/fell2/CLionProjects/LAB3-trees/BinTree/BinTree.h
 Sequence/ListSequence/LinkedListSequence.cpp
 C:/Users/fell2/CLionProjects/LAB3-trees/Sequence/ListSequence/LinkedListSequence.cpp
+Complex/Complex.h
+C:/Users/fell2/CLionProjects/LAB3-trees/Complex/Complex.h
+Person/Person.h
+C:/Users/fell2/CLionProjects/LAB3-trees/Person/Person.h
 

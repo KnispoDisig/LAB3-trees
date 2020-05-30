@@ -149,6 +149,33 @@ BinTree/BinTree.cpp.s:
 	$(MAKE) -f CMakeFiles\LAB3_trees.dir\build.make CMakeFiles/LAB3_trees.dir/BinTree/BinTree.cpp.s
 .PHONY : BinTree/BinTree.cpp.s
 
+Complex/Complex.obj: Complex/Complex.cpp.obj
+
+.PHONY : Complex/Complex.obj
+
+# target to build an object file
+Complex/Complex.cpp.obj:
+	$(MAKE) -f CMakeFiles\LAB3_trees.dir\build.make CMakeFiles/LAB3_trees.dir/Complex/Complex.cpp.obj
+.PHONY : Complex/Complex.cpp.obj
+
+Complex/Complex.i: Complex/Complex.cpp.i
+
+.PHONY : Complex/Complex.i
+
+# target to preprocess a source file
+Complex/Complex.cpp.i:
+	$(MAKE) -f CMakeFiles\LAB3_trees.dir\build.make CMakeFiles/LAB3_trees.dir/Complex/Complex.cpp.i
+.PHONY : Complex/Complex.cpp.i
+
+Complex/Complex.s: Complex/Complex.cpp.s
+
+.PHONY : Complex/Complex.s
+
+# target to generate assembly for a file
+Complex/Complex.cpp.s:
+	$(MAKE) -f CMakeFiles\LAB3_trees.dir\build.make CMakeFiles/LAB3_trees.dir/Complex/Complex.cpp.s
+.PHONY : Complex/Complex.cpp.s
+
 Sequence/ArraySequence/ArraySequence.obj: Sequence/ArraySequence/ArraySequence.cpp.obj
 
 .PHONY : Sequence/ArraySequence/ArraySequence.obj
@@ -323,6 +350,9 @@ help:
 	@echo ... BinTree/BinTree.obj
 	@echo ... BinTree/BinTree.i
 	@echo ... BinTree/BinTree.s
+	@echo ... Complex/Complex.obj
+	@echo ... Complex/Complex.i
+	@echo ... Complex/Complex.s
 	@echo ... Sequence/ArraySequence/ArraySequence.obj
 	@echo ... Sequence/ArraySequence/ArraySequence.i
 	@echo ... Sequence/ArraySequence/ArraySequence.s

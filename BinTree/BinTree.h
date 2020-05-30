@@ -6,6 +6,7 @@
 #include "../TreeNode/TreeNode.cpp"
 #include "../Sequence/ListSequence/LinkedListSequence.h"
 #include <cmath>
+#include <queue>
 
 #ifndef LAB3_TREES_BINTREE_H
 #define LAB3_TREES_BINTREE_H
@@ -106,6 +107,20 @@ private:
         if (node->right != nullptr) {
             map(func, node->right);
         }
+    }
+
+    int width() {
+        if (this == nullptr || this->root == nullptr) {
+            return 0;
+        }
+        int n = 0;
+        TreeNode<T> *ptr = this->root;
+
+        while (ptr != nullptr) {
+            n++;
+            ptr = ptr->left;
+        }
+        return n;
     }
 
 public:
@@ -360,8 +375,9 @@ public:
     }
 
     bool isEqual(BinTree<T> *tree) {
-        if (tree->get_root()->left == nullptr && tree->get_root()->right == nullptr && this->root->left == nullptr && this->root->right == nullptr) {
-                return this->root->data == tree->get_root()->data;
+        if (tree->get_root()->left == nullptr && tree->get_root()->right == nullptr && this->root->left == nullptr &&
+            this->root->right == nullptr) {
+            return this->root->data == tree->get_root()->data;
         }
         bool res = true;
         TreeNode<T> *this_right = this->root->right;
@@ -391,10 +407,67 @@ public:
             return true;
         }
         if (this->contains(subtree->get_root()->data)) {
-            BinTree<T> *checking_tree = this->extract_subtree(subtree->get_root()->data);    //кандидат в равенство subtree
+            BinTree<T> *checking_tree = this->extract_subtree(
+                    subtree->get_root()->data);    //кандидат в равенство subtree
             return checking_tree->isEqual(subtree);
         } else {
             return false;
+        }
+    }
+
+    Sequence<TreeNode<T> *> *wide_walk() {
+        if (this == nullptr || this->root == nullptr) {
+            return nullptr;
+        }
+        TreeNode<T> *ptr;
+        std::queue<TreeNode<T> *> queue;
+        Sequence<TreeNode<T> *> *sequence = new LinkedListSequence<TreeNode<T> *>();
+
+        queue.push(this->root);
+        while (!queue.empty()) {
+            ptr = queue.front();
+            if (ptr->left != nullptr) {
+                queue.push(ptr->left);
+            }
+            if (ptr->right != nullptr) {
+                queue.push(ptr->right);
+            }
+            sequence->prepend(ptr);
+            queue.pop();
+        }
+
+        return sequence;
+    }
+
+    void print() {
+        if (this == nullptr || this->root == nullptr) {
+            return;
+        }
+        std::queue<TreeNode<T> *> queue;
+        TreeNode<T> *ptr = nullptr;
+        int count_in_layer;
+
+        queue.push(this->root);
+
+        for (int i = 0; i < this->width(); i++) {
+            std::cout << " ";
+        }
+        std::cout << this->root->data << "\n";
+        queue.push(this->root->left);
+        queue.push(this->root->right);
+        queue.pop();
+
+        for (int i = 1; i < this->height() + 1; i++) {
+            count_in_layer = pow(2, i);
+            for (int j = 0; j < count_in_layer; j++) {
+                ptr = queue.front();
+                if (ptr != nullptr) {
+                    queue.push(ptr->left);
+                    queue.push(ptr->right);
+                }
+
+            }
+
         }
     }
 
