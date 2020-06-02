@@ -15,6 +15,8 @@ private:
 public:
     Complex(double re, double im);
 
+    Complex();
+
     friend bool operator==(const Complex &z1, const Complex &z2);
 
     friend bool operator!=(const Complex &z1, const Complex &z2);
@@ -38,6 +40,8 @@ public:
     double abs() const;
 
     friend std::ostream& operator<<(std::ostream &out, Complex z);
+
+    static std::string to_string(Complex z);
 
     void print() const;
 };

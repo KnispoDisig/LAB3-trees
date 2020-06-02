@@ -10,6 +10,7 @@
 
 #ifndef LAB3_TREES_BINTREE_H
 #define LAB3_TREES_BINTREE_H
+using namespace std;
 
 template<class T>
 class BinTree {
@@ -350,9 +351,9 @@ public:
         Sequence<TreeNode<T> *> *thread_tree = this->thread(order);
         for (int i = 0; i < thread_tree->getLength(); i++) {
             if (i == 0) {
-                res += std::to_string(thread_tree->get(i)->data) + " ";
+                res += to_string(thread_tree->get(i)->data) + " ";
             } else {
-                res += "-> " + std::to_string(thread_tree->get(i)->data) + " ";
+                res += "-> " + to_string(thread_tree->get(i)->data) + " ";
             }
         }
 
@@ -364,7 +365,11 @@ public:
     }
 
     Sequence<TreeNode<T> *> *thread(std::string order) {
-        return thread(this->root, order);
+        if (this->root == nullptr || this == nullptr) {
+            return new LinkedListSequence<TreeNode<T>*>();
+        } else {
+            return thread(this->root, order);
+        }
     }
 
     BinTree<T> *extract_subtree(T val) {
@@ -439,37 +444,37 @@ public:
         return sequence;
     }
 
-    void print() {
-        if (this == nullptr || this->root == nullptr) {
-            return;
-        }
-        std::queue<TreeNode<T> *> queue;
-        TreeNode<T> *ptr = nullptr;
-        int count_in_layer;
-
-        queue.push(this->root);
-
-        for (int i = 0; i < this->width(); i++) {
-            std::cout << " ";
-        }
-        std::cout << this->root->data << "\n";
-        queue.push(this->root->left);
-        queue.push(this->root->right);
-        queue.pop();
-
-        for (int i = 1; i < this->height() + 1; i++) {
-            count_in_layer = pow(2, i);
-            for (int j = 0; j < count_in_layer; j++) {
-                ptr = queue.front();
-                if (ptr != nullptr) {
-                    queue.push(ptr->left);
-                    queue.push(ptr->right);
-                }
-
-            }
-
-        }
-    }
+//    void print() {
+//        if (this == nullptr || this->root == nullptr) {
+//            return;
+//        }
+//        std::queue<TreeNode<T> *> queue;
+//        TreeNode<T> *ptr = nullptr;
+//        int count_in_layer;
+//
+//        queue.push(this->root);
+//
+//        for (int i = 0; i < this->width(); i++) {
+//            std::cout << " ";
+//        }
+//        std::cout << this->root->data << "\n";
+//        queue.push(this->root->left);
+//        queue.push(this->root->right);
+//        queue.pop();
+//
+//        for (int i = 1; i < this->height() + 1; i++) {
+//            count_in_layer = pow(2, i);
+//            for (int j = 0; j < count_in_layer; j++) {
+//                ptr = queue.front();
+//                if (ptr != nullptr) {
+//                    queue.push(ptr->left);
+//                    queue.push(ptr->right);
+//                }
+//
+//            }
+//
+//        }
+//    }
 
     void balance(TreeNode<T> *node);
 };

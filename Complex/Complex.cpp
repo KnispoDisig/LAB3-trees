@@ -62,3 +62,12 @@ std::ostream &operator<<(std::ostream &out, Complex z) {
     out << z.re << " + i * " << z.im;
     return out;
 }
+
+Complex::Complex() {
+    re = 0;
+    im = 0;
+}
+
+std::string Complex::to_string(Complex z) {
+    return std::to_string(z.re) + " + i * " + std::to_string(z.im);
+}
