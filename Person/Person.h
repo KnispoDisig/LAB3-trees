@@ -5,10 +5,12 @@
 #include "string"
 #include "ostream"
 
+
 #ifndef LAB3_TREES_STUDENT_H
 #define LAB3_TREES_STUDENT_H
 
 #endif //LAB3_TREES_STUDENT_H
+using namespace std;
 
 class Person {
 private:
@@ -20,8 +22,17 @@ public:
         this->last_name = last_name;
     }
 
+    Person() {
+        first_name = "Mark";
+        last_name = "Karavashkin";
+    }
+
     std::string get_surname() {
         return last_name;
+    }
+
+    string get_name() {
+        return first_name;
     }
 
     friend bool operator==(const Person &s1, const Person &s2) {
@@ -51,5 +62,9 @@ public:
     friend std::ostream& operator<<(std::ostream &out, Person student) {
         out << student.last_name + " " + student.first_name;
         return out;
+    }
+
+    friend std::string to_string(Person const& person) {
+        return person.first_name + " " + person.last_name;
     }
 };

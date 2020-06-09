@@ -68,6 +68,6 @@ Complex::Complex() {
     im = 0;
 }
 
-std::string Complex::to_string(Complex z) {
-    return std::to_string(z.re) + " + i * " + std::to_string(z.im);
+std::string to_string(const Complex &z) {
+    return to_string(z.re) + " + i * " + to_string(z.im);
 }

@@ -7,6 +7,23 @@
 
 
 #include <iosfwd>
+#include "string"
+using namespace std;
+
+namespace notstd {
+    namespace adl_helper {
+        using std::to_string;
+
+        template<class T>
+        std::string as_string( T&& t ) {
+            return to_string( std::forward<T>(t) );
+        }
+    }
+    template<class T>
+    std::string to_string( T&& t ) {
+        return adl_helper::as_string(std::forward<T>(t));
+    }
+}
 
 class Complex {
 private:
@@ -39,9 +56,17 @@ public:
 
     double abs() const;
 
+    double getRe() const {
+        return this->re;
+    }
+
+    double getIm() const {
+        return this->im;
+    }
+
     friend std::ostream& operator<<(std::ostream &out, Complex z);
 
-    static std::string to_string(Complex z);
+    friend std::string to_string(Complex const& z);
 
     void print() const;
 };

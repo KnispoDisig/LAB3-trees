@@ -3,6 +3,7 @@
 
 CMakeFiles/LAB3_trees.dir/BinTree/BinTree.cpp.obj: ../BinTree/BinTree.cpp
 CMakeFiles/LAB3_trees.dir/BinTree/BinTree.cpp.obj: ../BinTree/BinTree.h
+CMakeFiles/LAB3_trees.dir/BinTree/BinTree.cpp.obj: ../Complex/Complex.h
 CMakeFiles/LAB3_trees.dir/BinTree/BinTree.cpp.obj: ../Sequence/ListSequence/LinkedList/LinkedList.h
 CMakeFiles/LAB3_trees.dir/BinTree/BinTree.cpp.obj: ../Sequence/ListSequence/LinkedListSequence.h
 CMakeFiles/LAB3_trees.dir/BinTree/BinTree.cpp.obj: ../Sequence/Sequence.h

@@ -17,20 +17,14 @@ cmath
 -
 queue
 -
-
-C:/Users/fell2/CLionProjects/LAB3-trees/Complex/Complex.cpp
-Complex.h
+../Complex/Complex.h
 C:/Users/fell2/CLionProjects/LAB3-trees/Complex/Complex.h
-cmath
-C:/Users/fell2/CLionProjects/LAB3-trees/Complex/cmath
-string
--
-ostream
-C:/Users/fell2/CLionProjects/LAB3-trees/Complex/ostream
 
 C:/Users/fell2/CLionProjects/LAB3-trees/Complex/Complex.h
 iosfwd
 -
+string
+C:/Users/fell2/CLionProjects/LAB3-trees/Complex/string
 
 C:/Users/fell2/CLionProjects/LAB3-trees/Person/Person.h
 string
@@ -83,4 +77,8 @@ Complex/Complex.h
 C:/Users/fell2/CLionProjects/LAB3-trees/Complex/Complex.h
 Person/Person.h
 C:/Users/fell2/CLionProjects/LAB3-trees/Person/Person.h
+locale
+C:/Users/fell2/CLionProjects/LAB3-trees/locale
+ctime
+-
 

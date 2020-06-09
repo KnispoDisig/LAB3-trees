@@ -7,6 +7,7 @@
 #include "../Sequence/ListSequence/LinkedListSequence.h"
 #include <cmath>
 #include <queue>
+#include "../Complex/Complex.h"
 
 #ifndef LAB3_TREES_BINTREE_H
 #define LAB3_TREES_BINTREE_H
@@ -124,76 +125,6 @@ private:
         return n;
     }
 
-public:
-    BinTree() {
-        this->root = nullptr;
-    }
-
-    BinTree(TreeNode<T> *root) {
-        this->root = root;
-    }
-
-    int height() {
-        return height(this->root);
-    }
-
-    TreeNode<T> *find_node(T val) {
-        return find_node(this->root, val);
-    }
-
-    static int height(TreeNode<T> *node) {
-        int L;
-        int R;
-        if (node->left == nullptr && node->right == nullptr) {
-            return 0;
-        } else {
-            if (node->left != nullptr) {
-                L = height(node->left) + 1;
-            } else {
-                L = 0;
-            }
-            if (node->right != nullptr) {
-                R = height(node->right) + 1;
-            } else {
-                R = 0;
-            }
-        }
-        if (L > R) {
-            return L;
-        } else {
-            return R;
-        }
-    }
-
-    bool insert_node(T val) {
-        if (this->contains(val)) {
-            return false;
-        }
-        TreeNode<T> *new_node = new TreeNode<T>(val);
-        TreeNode<T> *ptr = this->root;
-        TreeNode<T> *ptr1 = nullptr;
-
-        while (ptr != nullptr) {
-            ptr1 = ptr;
-            if (val < ptr->get_data()) {
-                ptr = ptr->left;
-            } else {
-                ptr = ptr->right;
-            }
-        }
-
-        if (ptr1 == nullptr) {
-            this->root = new_node;
-        } else {
-            if (val < ptr1->get_data()) {
-                ptr1->left = new_node;
-            } else {
-                ptr1->right = new_node;
-            }
-        }
-        return true;
-    }
-
     bool delete_node(T val, TreeNode<T> *node) {
         if (node == nullptr) {
             return false;
@@ -282,6 +213,76 @@ public:
         }
     }
 
+public:
+    BinTree() {
+        this->root = nullptr;
+    }
+
+    BinTree(TreeNode<T> *root) {
+        this->root = root;
+    }
+
+    int height() {
+        return height(this->root);
+    }
+
+    TreeNode<T> *find_node(T val) {
+        return find_node(this->root, val);
+    }
+
+    static int height(TreeNode<T> *node) {
+        int L;
+        int R;
+        if (node->left == nullptr && node->right == nullptr) {
+            return 0;
+        } else {
+            if (node->left != nullptr) {
+                L = height(node->left) + 1;
+            } else {
+                L = 0;
+            }
+            if (node->right != nullptr) {
+                R = height(node->right) + 1;
+            } else {
+                R = 0;
+            }
+        }
+        if (L > R) {
+            return L;
+        } else {
+            return R;
+        }
+    }
+
+    bool insert_node(T val) {
+        if (this->contains(val)) {
+            return false;
+        }
+        TreeNode<T> *new_node = new TreeNode<T>(val);
+        TreeNode<T> *ptr = this->root;
+        TreeNode<T> *ptr1 = nullptr;
+
+        while (ptr != nullptr) {
+            ptr1 = ptr;
+            if (val < ptr->get_data()) {
+                ptr = ptr->left;
+            } else {
+                ptr = ptr->right;
+            }
+        }
+
+        if (ptr1 == nullptr) {
+            this->root = new_node;
+        } else {
+            if (val < ptr1->get_data()) {
+                ptr1->left = new_node;
+            } else {
+                ptr1->right = new_node;
+            }
+        }
+        return true;
+    }
+
     bool contains(T x) {
         TreeNode<T> *ptr = this->root;
         while (ptr != nullptr) {
@@ -350,11 +351,10 @@ public:
 
         Sequence<TreeNode<T> *> *thread_tree = this->thread(order);
         for (int i = 0; i < thread_tree->getLength(); i++) {
-            if (i == 0) {
-                res += to_string(thread_tree->get(i)->data) + " ";
-            } else {
-                res += "-> " + to_string(thread_tree->get(i)->data) + " ";
+            if (i != 0) {
+                res += "-> ";
             }
+            res += to_string(thread_tree->get(i)->data) + " ";
         }
 
         return res;
@@ -373,13 +373,19 @@ public:
     }
 
     BinTree<T> *extract_subtree(T val) {
-        TreeNode<T> *ptr = this->find_node(val);
-        BinTree<T> *newTree = new BinTree<T>(ptr);
-
-        return newTree;
+        if (this->contains(val)) {
+            TreeNode<T> *ptr = this->find_node(val);
+            BinTree<T> *newTree = new BinTree<T>(ptr);
+            return newTree;
+        } else {
+            return nullptr;
+        }
     }
 
     bool isEqual(BinTree<T> *tree) {
+        if (this->root == nullptr && tree->get_root() == nullptr) {
+            return true;
+        }
         if (tree->get_root()->left == nullptr && tree->get_root()->right == nullptr && this->root->left == nullptr &&
             this->root->right == nullptr) {
             return this->root->data == tree->get_root()->data;
@@ -442,6 +448,10 @@ public:
         }
 
         return sequence;
+    }
+
+    bool delete_node(T val) {
+        return delete_node(val, this->root);
     }
 
 //    void print() {
